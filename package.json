@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@camberi/firecms": "^1.0.0-beta1",
+    "@camberi/firecms": "link:./../firecms",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "5",

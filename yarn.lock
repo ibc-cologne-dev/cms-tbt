@@ -1143,31 +1143,9 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@camberi/firecms@^1.0.0-beta1":
-  version "1.0.0-beta1"
-  resolved "https://registry.yarnpkg.com/@camberi/firecms/-/firecms-1.0.0-beta1.tgz#641f8ca607db520e5af189ea717cac7138a340ee"
-  integrity sha512-ptrjGuk0TLdddIldo1tnbGAeXbnP2xTQqtQCRnSWxxRfI5U9zGuIKE3nT/t1VhyQgXXuMCZoCUfUPgKkbHRoew==
-  dependencies:
-    "@date-io/date-fns" "^1.3.11"
-    "@uiw/react-md-editor" "^3.4.10"
-    date-fns "^2.21.3"
-    deep-equal "^2.0.5"
-    firebaseui "~0.600"
-    formik "^2.2.6"
-    history "^5"
-    object-hash "^2.2.0"
-    react-base-table "^1.12.0"
-    react-csv "^2.0.3"
-    react-dnd "^14.0.2"
-    react-dnd-html5-backend "^14.0.0"
-    react-dropzone "^11.3.2"
-    react-measure "^2.5.2"
-    react-transition-group "^4.4.1"
-    typeface-roboto "^1.1.13"
-    typeface-rubik "^1.1.13"
-    typeface-space-mono "^1.1.13"
-    use-clipboard-hook "^1.1.1"
-    yup "^0.32.9"
+"@camberi/firecms@link:../firecms":
+  version "0.0.0"
+  uid ""
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
