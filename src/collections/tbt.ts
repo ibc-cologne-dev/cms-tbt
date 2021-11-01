@@ -1,5 +1,5 @@
 import { buildSchema, buildProperty, buildCollection } from "@camberi/firecms";
-
+import { nanoid } from 'nanoid'
 import { lessonCollection } from "./lesson";
 
 type TBT = {
@@ -26,6 +26,7 @@ const tbtSchema = buildSchema<TBT>({
           mediaType: "image",
           storagePath: "images/tbt",
           acceptedFiles: ["image/*"],
+          fileName: (e) => nanoid(),
         },
       },
     }),
