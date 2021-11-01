@@ -8,6 +8,7 @@ import "typeface-space-mono";
 
 import { tbtCollection } from "./collections/tbt";
 import { resourceTypeCollection } from "./collections/resourceType";
+import { firebaseConfig } from "../firebase";
 
 export default function App() {
   const navigation: NavigationBuilder = async () => {
