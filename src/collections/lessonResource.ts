@@ -90,5 +90,4 @@ export const lessonResourceCollection = buildCollection({
   name: "Lesson Resource",
   path: "lesson-resources",
   schema: lessonResourceSchema,
-  inlineEditing: false,
 });

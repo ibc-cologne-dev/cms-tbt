@@ -29,7 +29,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "setup": "gsutil cp gs://cms-tbt.appspot.com/config/firebase.ts ./src/firebase.ts",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
