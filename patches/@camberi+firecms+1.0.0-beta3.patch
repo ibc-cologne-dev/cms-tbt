@@ -1,0 +1,83 @@
+diff --git a/node_modules/@camberi/firecms/dist/form/fields/MarkdownField.d.ts b/node_modules/@camberi/firecms/dist/form/fields/MarkdownField.d.ts
+index 9b54fea..ab9a4bc 100644
+--- a/node_modules/@camberi/firecms/dist/form/fields/MarkdownField.d.ts
++++ b/node_modules/@camberi/firecms/dist/form/fields/MarkdownField.d.ts
+@@ -1,6 +1,9 @@
+ /// <reference types="react" />
+ import { FieldProps } from "../../models";
++import { ICommand} from "@uiw/react-md-editor";
++
+ interface MarkDownFieldProps extends FieldProps<string> {
++  commands?: ICommand[]
+ }
+ export declare const useStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root">;
+ /**
+@@ -10,5 +13,5 @@ export declare const useStyles: (props?: any) => import("@mui/styles").ClassName
+  * and tables to the specified properties.
+  * @category Form fields
+  */
+-export declare function MarkdownField({ name, value, setValue, error, showError, disabled, autoFocus, touched, property, tableMode, includeDescription, context, dependsOnOtherProperties }: MarkDownFieldProps): JSX.Element;
++export declare function MarkdownField({ commands, name, value, setValue, error, showError, disabled, autoFocus, touched, property, tableMode, includeDescription, context, dependsOnOtherProperties }: MarkDownFieldProps): JSX.Element;
+ export {};
+diff --git a/node_modules/@camberi/firecms/dist/index.js b/node_modules/@camberi/firecms/dist/index.js
+index 5493c33..5a06371 100644
+--- a/node_modules/@camberi/firecms/dist/index.js
++++ b/node_modules/@camberi/firecms/dist/index.js
+@@ -60679,6 +60679,7 @@ function MarkdownField(_ref) {
+     }, {
+       children: jsxRuntime.jsx(MDEditor__default["default"], {
+         value: typeof value === "string" ? value : "",
++        commands: property.config.commands,
+         preview: "edit",
+         onChange: function onChange(value) {
+           return updateValue(value);
+diff --git a/node_modules/@camberi/firecms/dist/index.modern.js b/node_modules/@camberi/firecms/dist/index.modern.js
+index 6c5ea4e..ee834b6 100644
+--- a/node_modules/@camberi/firecms/dist/index.modern.js
++++ b/node_modules/@camberi/firecms/dist/index.modern.js
+@@ -60046,7 +60046,7 @@ function MarkdownField({
+   context,
+   dependsOnOtherProperties
+ }) {
+-  var _property$validation, _property$validation2;
++  var _property$validation, _property$validation2, _property$validation3;
+ 
+   const classes = useStyles$c();
+   useClearRestoreValue({
+@@ -60081,6 +60081,7 @@ function MarkdownField({
+       children: jsx$1(MDEditor, {
+         value: typeof value === "string" ? value : "",
+         preview: "edit",
++        commands: (_property$validation3 = property.config.markdownCommands) == null ? void 0 : _property$validation3,
+         onChange: value => updateValue(value)
+       }, void 0)
+     }), void 0), jsx$1(Box, Object.assign({
+@@ -60392,6 +60393,8 @@ function FieldInternal({
+ }) {
+   var _property$config8, _property$validation2;
+ 
++  console.log('internal', property);
++
+   const customFieldProps = (_property$config8 = property.config) == null ? void 0 : _property$config8.customProps;
+   const value = fieldProps.field.value;
+   const initialValue = fieldProps.meta.initialValue;
+diff --git a/node_modules/@camberi/firecms/dist/models/properties.d.ts b/node_modules/@camberi/firecms/dist/models/properties.d.ts
+index 6022746..c40db8d 100644
+--- a/node_modules/@camberi/firecms/dist/models/properties.d.ts
++++ b/node_modules/@camberi/firecms/dist/models/properties.d.ts
+@@ -3,6 +3,7 @@ import { FieldProps } from "./fields";
+ import { PreviewComponentProps } from "../preview";
+ import { ChipColor } from "./colors";
+ import { EntityReference, EntityValues, GeoPoint } from "./entities";
++import { ICommand} from "@uiw/react-md-editor";
+ /**
+  * @category Entity properties
+  */
+@@ -445,6 +446,7 @@ export interface StringFieldConfig extends FieldConfig<string> {
+      * syntax. It also includes a preview of the result.
+      */
+     markdown?: boolean;
++    markdownCommands?: ICommand[];
+     /**
+      * You can use the enum values providing a map of possible
+      * exclusive values the property can take, mapped to the label that it is

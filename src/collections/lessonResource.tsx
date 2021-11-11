@@ -1,9 +1,11 @@
+import React from "react";
 import {
   buildSchema,
   buildCollection,
   buildProperty,
   EntityReference,
 } from "@camberi/firecms";
+import { markdownEditorCommands } from "../utils/markdownEditor";
 
 type Lesson = {
   title: string;
@@ -38,6 +40,7 @@ const content = buildProperty({
         dataType: "string",
         config: {
           markdown: true,
+          markdownCommands: markdownEditorCommands,
         },
       },
       video: {
