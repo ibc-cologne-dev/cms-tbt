@@ -1,15 +1,16 @@
-import React from "react";
 import {
   buildSchema,
   buildCollection,
   buildProperty,
   EntityReference,
 } from "@camberi/firecms";
+import { nanoid } from "nanoid";
 import { markdownEditorCommands } from "../utils/markdownEditor";
 
 type Lesson = {
   title: string;
   type: EntityReference;
+  image_thumbnail: string;
   image_header: string;
   content: Array<any>;
 };
@@ -31,6 +32,7 @@ const content = buildProperty({
             mediaType: "image",
             storagePath: "images/tbt/lessons",
             acceptedFiles: ["image/*"],
+            fileName: () => nanoid(),
           },
         },
       },
@@ -73,6 +75,19 @@ const lessonResourceSchema = buildSchema<Lesson>({
       dataType: "reference",
       path: "resource-type",
     },
+    image_thumbnail: {
+      title: "Image thumbnail",
+      description: "Thumbnail displayed in the ",
+      dataType: "string",
+      config: {
+        storageMeta: {
+          mediaType: "image",
+          storagePath: "images/tbt/lessons/lesson-resources",
+          acceptedFiles: ["image/*"],
+          fileName: () => nanoid(),
+        },
+      },
+    },
     image_header: {
       title: "Image header",
       description: "Header image of the Lesson, upload it here",
@@ -82,6 +97,7 @@ const lessonResourceSchema = buildSchema<Lesson>({
           mediaType: "image",
           storagePath: "images/tbt/lessons/lesson-resources",
           acceptedFiles: ["image/*"],
+          fileName: () => nanoid(),
         },
       },
     },
