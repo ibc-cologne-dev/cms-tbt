@@ -1,33 +1,38 @@
 import { buildSchema, buildCollection } from "@camberi/firecms";
-import { nanoid } from "nanoid";
 import { lessonResourceCollection } from "./lessonResource";
+import { colors } from "../utils/styles";
+import { SelectColor } from "../components/fields/SelectColor";
 
 type Lesson = {
   title: string;
-  image: string;
+  number: number;
+  color: string;
 };
 
 const lessonSchema = buildSchema<Lesson>({
   name: "Lesson",
   properties: {
     title: {
-      title: "Lesson title",
+      title: "Title",
       dataType: "string",
       validation: {
         min: 1,
       },
     },
-    image: {
-      title: "Image",
-      description: "Image of the Lesson, upload it here",
+    number: {
+      title: "Lesson Number",
+      dataType: "number",
+      validation: {
+        min: 1,
+        max: 999,
+      },
+    },
+    color: {
+      title: "Color",
       dataType: "string",
       config: {
-        storageMeta: {
-          mediaType: "image",
-          storagePath: "images/tbt/lessons",
-          acceptedFiles: ["image/*"],
-          fileName: () => nanoid(),
-        },
+        enumValues: colors,
+        Field: SelectColor,
       },
     },
   },
