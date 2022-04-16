@@ -18,7 +18,6 @@ export const SelectColor = <T extends EnumType>({
   isSubmitting,
 }: SelectProps<T>) => {
   const enumValues = property.config?.enumValues! as Record<string, string>;
-  console.log("enumValues", enumValues);
 
   return (
     <>
