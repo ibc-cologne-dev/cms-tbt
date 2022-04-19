@@ -121,7 +121,7 @@ export default function App() {
             );
           } else {
             component = (
-              <Scaffold name={"IBC TBT"} logo={require("./assets/logo.png")}>
+              <Scaffold name={"IBC TBT"} logo={"logo.png"}>
                 <NavigationRoutes />
                 <SideEntityDialogs />
               </Scaffold>

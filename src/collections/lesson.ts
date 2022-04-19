@@ -5,6 +5,7 @@ import { SelectColor } from "../components/fields/SelectColor";
 
 type Lesson = {
   title: string;
+  subtitle: string;
   number: number;
   color: string;
 };
@@ -14,6 +15,13 @@ const lessonSchema = buildSchema<Lesson>({
   properties: {
     title: {
       title: "Title",
+      dataType: "string",
+      validation: {
+        min: 1,
+      },
+    },
+    subtitle: {
+      title: "Subtitle (biblical passage)",
       dataType: "string",
       validation: {
         min: 1,
