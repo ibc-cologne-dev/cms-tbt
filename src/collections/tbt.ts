@@ -1,10 +1,9 @@
-import { buildSchema, buildProperty, buildCollection } from "@camberi/firecms";
-import { nanoid } from 'nanoid'
+import { buildSchema, buildCollection } from "@camberi/firecms";
 import { lessonCollection } from "./lesson";
 
 type TBT = {
   title: string;
-  image: string;
+  orderNumber: number;
 };
 
 const tbtSchema = buildSchema<TBT>({
@@ -17,19 +16,14 @@ const tbtSchema = buildSchema<TBT>({
         min: 2,
       },
     },
-    image: buildProperty({
-      title: "Image",
-      description: "Image to show as cover of the TBT",
-      dataType: "string",
-      config: {
-        storageMeta: {
-          mediaType: "image",
-          storagePath: "images/tbt",
-          acceptedFiles: ["image/*"],
-          fileName: (e) => nanoid(),
-        },
+    orderNumber: {
+      title: "Number (order)",
+      dataType: "number",
+      validation: {
+        min: 1,
+        max: 999,
       },
-    }),
+    },
   },
 });
 

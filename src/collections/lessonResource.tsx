@@ -9,7 +9,6 @@ import { markdownEditorCommands } from "../utils/markdownEditor";
 type Lesson = {
   title: string;
   type: EntityReference;
-  image_header: string;
   content: Array<any>;
 };
 
@@ -71,18 +70,6 @@ const lessonResourceSchema = buildSchema<Lesson>({
       title: "Type",
       dataType: "reference",
       path: "resource-type",
-    },
-    image_header: {
-      title: "Image header",
-      description: "Header image of the Lesson, upload it here",
-      dataType: "string",
-      config: {
-        storageMeta: {
-          mediaType: "image",
-          storagePath: "images/tbt/lessons/lesson-resources",
-          acceptedFiles: ["image/*"],
-        },
-      },
     },
     content,
   },
