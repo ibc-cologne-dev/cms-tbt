@@ -32,7 +32,7 @@ index 5493c33..5a06371 100644
          onChange: function onChange(value) {
            return updateValue(value);
 diff --git a/node_modules/@camberi/firecms/dist/index.modern.js b/node_modules/@camberi/firecms/dist/index.modern.js
-index 6c5ea4e..ee834b6 100644
+index 6c5ea4e..39d2853 100644
 --- a/node_modules/@camberi/firecms/dist/index.modern.js
 +++ b/node_modules/@camberi/firecms/dist/index.modern.js
 @@ -60046,7 +60046,7 @@ function MarkdownField({
@@ -52,15 +52,6 @@ index 6c5ea4e..ee834b6 100644
          onChange: value => updateValue(value)
        }, void 0)
      }), void 0), jsx$1(Box, Object.assign({
-@@ -60392,6 +60393,8 @@ function FieldInternal({
- }) {
-   var _property$config8, _property$validation2;
- 
-+  console.log('internal', property);
-+
-   const customFieldProps = (_property$config8 = property.config) == null ? void 0 : _property$config8.customProps;
-   const value = fieldProps.field.value;
-   const initialValue = fieldProps.meta.initialValue;
 diff --git a/node_modules/@camberi/firecms/dist/models/properties.d.ts b/node_modules/@camberi/firecms/dist/models/properties.d.ts
 index 6022746..c40db8d 100644
 --- a/node_modules/@camberi/firecms/dist/models/properties.d.ts

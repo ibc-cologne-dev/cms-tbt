@@ -41,7 +41,6 @@ export const SelectColor = <T extends EnumType>({
         }}
       >
         {Object.keys(enumValues).map((key) => {
-          console.log("key", key);
           return (
             <MenuItem key={`select_${name}_${key}`} value={key}>
               <ColorChip enumKey={key} enumValues={enumValues} />
