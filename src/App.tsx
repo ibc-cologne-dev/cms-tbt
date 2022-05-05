@@ -67,6 +67,7 @@ export default function App() {
 
   const auth: Authenticator = async ({ user }) => {
     const uid = user?.uid;
+    console.log("uid", uid);
 
     if (!uid) {
       return false;

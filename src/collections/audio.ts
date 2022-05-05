@@ -24,7 +24,7 @@ const audioSchema = buildSchema<Audio>({
       config: {
         storageMeta: {
           mediaType: "audio",
-          storagePath: "audio",
+          storagePath: "audios",
           acceptedFiles: ["audio/*"],
         },
       },
