@@ -24,6 +24,7 @@ import "typeface-space-mono";
 
 import { tbtCollection } from "./collections/tbt";
 import { resourceTypeCollection } from "./collections/resourceType";
+import { audioCollection } from "./collections/audio";
 import { firebaseConfig } from "./firebase";
 
 const app = initializeApp({ ...firebaseConfig });
@@ -55,7 +56,7 @@ export default function App() {
 
   const navigation: NavigationBuilder = async () => {
     return {
-      collections: [tbtCollection, resourceTypeCollection],
+      collections: [tbtCollection, resourceTypeCollection, audioCollection],
     };
   };
 
