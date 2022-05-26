@@ -2,9 +2,12 @@ import { buildSchema, buildCollection } from "@camberi/firecms";
 
 type Audio = {
   title: string;
+  subtitle: string;
   file: string;
   audio_duration: number;
+  number: number;
   artist: string;
+  album: string;
 };
 
 const audioSchema = buildSchema<Audio>({
@@ -15,6 +18,36 @@ const audioSchema = buildSchema<Audio>({
       dataType: "string",
       validation: {
         min: 2,
+      },
+    },
+    subtitle: {
+      title: "Subtitle (ex: biblical passage)",
+      dataType: "string",
+      validation: {
+        min: 2,
+      },
+    },
+    number: {
+      title: "Song Number",
+      dataType: "number",
+      validation: {
+        min: 1,
+        max: 999,
+      },
+    },
+    album: {
+      title: "Album",
+      description: "Album",
+      dataType: "string",
+      validation: {
+        required: true,
+      },
+      config: {
+        enumValues: {
+          Genesis: "Genesis",
+          Exodus: "Exodus",
+          Acts: "Acts",
+        },
       },
     },
     file: {
@@ -49,7 +82,7 @@ const audioSchema = buildSchema<Audio>({
       },
       config: {
         enumValues: {
-          ibcCologne: "IBC Cologne",
+          ["IBC Cologne"]: "IBC Cologne",
         },
       },
     },
