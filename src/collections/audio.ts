@@ -47,6 +47,7 @@ const audioSchema = buildSchema<Audio>({
           Genesis: "Genesis",
           Exodus: "Exodus",
           Acts: "Acts",
+          Ephesians: "Ephesians",
         },
       },
     },
